@@ -1,4 +1,6 @@
 Feature: Registering to Play
+	As a casual visitor to the site
+	I want to be able to join a game
 
 Scenario: Visiting the Page
 	Given I am on the home page

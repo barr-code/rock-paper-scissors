@@ -2,12 +2,15 @@ require 'sinatra/base'
 
 class RockPaperScissor < Sinatra::Base
 	set :views, Proc.new {File.join(root, '..', 'views')}
-	
+
   get '/' do
-    'Welcome to Rock Paper Scissor'
     erb :index
   end
 
-  # start the server if ruby file executed directly
+  post '/game' do
+  	@player = params[:player_name]
+  	erb :game
+  end
+
   run! if app_file == $0
 end
