@@ -1,8 +1,11 @@
 require 'sinatra/base'
 
 class RockPaperScissor < Sinatra::Base
+	set :views, Proc.new {File.join(root, '..', 'views')}
+	
   get '/' do
-    'Hello RockPaperScissor!'
+    'Welcome to Rock Paper Scissor'
+    erb :index
   end
 
   # start the server if ruby file executed directly
