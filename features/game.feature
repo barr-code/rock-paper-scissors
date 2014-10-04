@@ -1,8 +1,5 @@
-Feature: Playing RPS!
-	In order to enjoy Rock Paper Scissor
-	As a player
-	I want to play
+Feature: Starting a game
 
-Scenario: Becoming a Player
-	Given I have signed in
-	Then I see "Let's play, Victoria!"
+Scenario: Visiting the game page
+	Given I am on the game page
+	Then I see "Choose your weapon."

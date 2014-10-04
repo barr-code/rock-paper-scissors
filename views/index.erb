@@ -1,6 +1,18 @@
-<h1>Welcome to Rock Paper Scissor</h1>
-
+<% if @player %>
+	<h1>Welcome, <%= @player %>! Let's play.</h1>
+	
 <form action="/game" method="post">
-<input type="text" name="player_name" placeholder="What's your name?">
 <input type="submit" value="Let's Play!">
 </form>
+
+<% else %>
+
+<h1>Welcome to Rock Paper Scissors!</h1>
+<h2>Sign in to play.</h2>
+
+<form action="/" method="post">
+<input type="text" name="player_name" placeholder="What's your name?">
+<input type="submit" value="Sign up!">
+</form>
+
+<% end %>
