@@ -9,4 +9,11 @@ Scenario: Visiting the Page
 Scenario: Signing Up
 	Given I am on the home page
 	When I enter "Victoria" into "player_name"
-	Then I should see "Welcome, Victoria! Let's play."
+	And click "Sign up!"
+	Then I should see "Welcome, Victoria! Let the game begin."
+
+Scenario: Starting the game
+	Given I have signed up
+	When I click "Start Game"
+	Then I see "Let's play, Victoria."
+	And I should see "Choose your weapon."

@@ -1,3 +1,10 @@
-<h1>Choose your weapon.</h1>
+<center><h1>Let's play, <%= @player%>.</h1>
+<h2>Choose your weapon.</h2></center>
 
-<form 
+<form action="/winner" method="post">
+	<input type="radio" name="weapon" value="rock">Rock<img src='/images/rock.jpg' width='300'>
+		<input type="radio" name="weapon" value="paper">Paper<img src='/images/paper.jpg' width='300'>
+		<input type="radio" name="weapon" value="scissors">Scissors<img src='/images/scissors.jpg' width='300'>
+	<br>
+		<input type="submit" value="Go!">
+</form>
