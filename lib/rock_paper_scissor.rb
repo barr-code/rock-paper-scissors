@@ -16,27 +16,32 @@ class RockPaperScissor < Sinatra::Base
   post '/' do
   	session[:name] = params[:player_name]
     @player = session[:name]
-    if !GAME.has_players?
-      GAME.player1 = Player.new(session[:name])
-    elsif GAME.player1
-      GAME.player2 = Player.new(session[:name])
-    elsif GAME.has_two_players?
-      'There are already two players.'
-    end
+    GAME.player = Player.new(@player)
     puts GAME.inspect
     erb :index
   end
 
   post '/game' do
-    @player = session[:name]
-  	erb :game
+    redirect '/game'
+  end
+
+  get '/game' do
+    erb :game
   end
 
   post '/winner' do
-    GAME.player1.weapon = params[:weapon]
-    GAME.player2.weapon = params[:weapon]
+    GAME.player.weapon = params[:weapon]
+    
+    erb :winner
     puts GAME.inspect
+    redirect '/winner'
+  end
 
+  get '/winner' do 
+    @weapon = GAME.player.weapon
+    @winner = GAME.result
+    @computer = GAME.computer
+    erb :winner
   end
 
   run! if app_file == $0

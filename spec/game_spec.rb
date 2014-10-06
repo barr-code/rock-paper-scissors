@@ -7,7 +7,7 @@ describe Game do
 	let(:player_1) {Player.new('Victoria')}
 
 	it "adds players" do
-		game.player1 = player_1
+		game.player = player_1
 		expect(game).to have_players
 	end
 
