@@ -33,7 +33,9 @@ class RockPaperScissor < Sinatra::Base
   end
 
   post '/winner' do
-
+    GAME.player1.weapon = params[:weapon]
+    GAME.player2.weapon = params[:weapon]
+    puts GAME.inspect
 
   end
 

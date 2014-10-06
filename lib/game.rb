@@ -1,25 +1,26 @@
 class Game
 
-	attr_accessor :player1, :player2
+	attr_accessor :player1, :computer
 
 	def initialize
 		@player1 = nil
-		@player2 = nil
+		@computer
 	end
 
 	WINS = {rock: :scissors, scissors: :paper, paper: :rock}
 
 	def has_players?
-		@player1 || @player2
+		@player1
 	end
 
-	def has_two_players?
-		@player1 && @player2
+	def random_choice!
+		@computer = %w(:rock :paper :scissors).sample
 	end
 
 	def result
-		return 'Draw!' if player1.weapon == player2.weapon
-		WINS[player1.weapon] == player2.weapon ? "#{player1.name} wins!" : "#{player2.name} wins!"
+		random_choice!
+		return 'Draw!' if player1.weapon == @computer
+		WINS[player1.weapon] == computer ? "#{player1.weapon.to_s} beats #{@computer}. #{player1.name} wins!" : "#{@computer.to_s} beats #{player1.weapon}. Computer wins!"
 	end
 
 end
