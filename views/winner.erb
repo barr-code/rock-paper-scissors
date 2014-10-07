@@ -1,1 +1,12 @@
+<% if @winner != 'Draw!' %>
+
 <center><h1>You chose <%= @weapon %>. The computer chose <%= @computer %>. <%= @winner %> wins!</h1></center>
+
+<% else %>
+<center><h1>It's a <%= @winner %></h1></center>
+
+<% end %>
+
+<form action="/game" method="get">
+<input type="submit" value="Play Again?">
+</form>

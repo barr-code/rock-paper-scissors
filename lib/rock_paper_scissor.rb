@@ -29,15 +29,15 @@ class RockPaperScissor < Sinatra::Base
     erb :game
   end
 
-  post '/winner' do
+  post '/result' do
     GAME.player.weapon = params[:weapon]
     
     erb :winner
     puts GAME.inspect
-    redirect '/winner'
+    redirect '/result'
   end
 
-  get '/winner' do 
+  get '/result' do 
     @weapon = GAME.player.weapon
     @winner = GAME.result
     @computer = GAME.computer
