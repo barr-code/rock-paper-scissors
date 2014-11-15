@@ -26,6 +26,7 @@ class RockPaperScissor < Sinatra::Base
   end
 
   get '/game' do
+    @player = session[:name]
     erb :game
   end
 

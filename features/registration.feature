@@ -15,5 +15,5 @@ Scenario: Signing Up
 Scenario: Starting the game
 	Given I have signed up
 	When I click "Start Game"
-	Then I see "Let's play, Victoria."
+	Then I should see "Let's play, Victoria."
 	And I should see "Choose your weapon."
